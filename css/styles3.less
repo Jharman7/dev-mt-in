@@ -15,7 +15,7 @@
 html {
   margin: 0;
   padding: 0;
-  
+
   .ng-scope {
     margin: 0;
     padding: 0;
@@ -24,13 +24,13 @@ html {
 
 body {
   background-color: @bgcolor;
-  background-image: url(/images/beach-sm-min.jpg);
+  // background-image: url(images\beach-sm-min.jpg);
   background-size:auto;
   background-repeat: no-repeat;
   position: relative;
   margin: 0;
   padding: 0;
-  
+
   ng-scope {
     margin: 0;
     padding: 0;
@@ -48,10 +48,10 @@ body {
 button {
   font: @font1;
   font-size: 12px;
-  font-weight: 600; 
-  border: 0;  
-} 
-  
+  font-weight: 600;
+  border: 0;
+}
+
 .l-btn-main {
   width: 110px;
   height: 30px;
@@ -88,7 +88,7 @@ input {
 
 input[type="text"]::-webkit-input-placeholder {
   color: @color1;
-  font-family: @font1; 
+  font-family: @font1;
 }
 
 input[type="password"]::-webkit-input-placeholder {
@@ -106,8 +106,8 @@ h2 {
 
 
 // HEADER
-.l-header {  
-  
+.l-header {
+
   h1 {
     font-family: @font1;
     letter-spacing: .2em;
@@ -118,13 +118,13 @@ h2 {
     margin: 0;
     padding: 1% 3%;
     border-bottom: 1px solid @color1;
-    
+
     .ng-binding {
       margin: 0;
       padding: 0;
       height: 45px;
     }
-  }  
+  }
 }
 
 // CREATE PROFILE
@@ -135,7 +135,7 @@ h2 {
   width: 28%;
   float: left;
 }
-  
+
 // FRIENDS
 .l-container {
   padding-top: 2%;
@@ -143,7 +143,7 @@ h2 {
   color: @color1;
   width: 28%;
   float: left;
-  
+
   .friendList {
     width: 290px;
     height: 20px;
@@ -154,39 +154,40 @@ h2 {
     font-weight: 600;
     padding: 3px 0 0 20px;
     position: relative;
-    
+
     .closeBtn:before {
       content: 'x';
       font-size: 1.1em;
       font-weight: bold;
       margin-right: 8px;
+      margin-top: 8px;
       height: 20px;
       width: 20px;
       color: @color2;
-      background-color: @color1;	
+      background-color: @color1;
       position: absolute;
       top: 2px;
       left: 2px;
       text-align: center;
     }
-    
+
     .secondConnection {
       position: relative;
       left: 20px;
     }
-  } 
+  }
 }
 
 // FRIEND MODAL
 
 #myModalMask {
   width: 200px;
-  height: 365px; 
+  height: 365px;
   position: relative;
   margin-top: 6%;
   margin-left: 50%;
-  overflow: hidden; 
-  
+  overflow: hidden;
+
   #myModal {
     width: 200px;
     height: 365px;
@@ -199,8 +200,8 @@ h2 {
 
     div {
       width: 200px;
-      height: 100%; 
-      
+      height: 100%;
+
       .modalTitle {
         width: 240px;
         height: 30px;
@@ -214,7 +215,7 @@ h2 {
         margin-right: auto;
         margin-left: auto;
       }
-      
+
       .closeBtn:before {
         content: 'X';
         font-size: 0.7em;
@@ -236,7 +237,7 @@ h2 {
         font-weight: 600;
         padding: 3px 0 0 30px;
         position: relative;
-       
+
         .friend::before {
           content: '+';
           font-size: 1.5em;
@@ -249,8 +250,8 @@ h2 {
           top: 2px;
           left: 2px;
           text-align: center;
-        }        
-      }        
+        }
+      }
     }
   }
 }
@@ -291,18 +292,18 @@ h2 {
     padding-bottom: 2%;
     width: 100%;
   }
-  
+
   #myModalMask {
     padding-top: 2%;
     padding-left: 3%;
     padding-bottom: 2%;
     margin: 0;
     width: 96%;
-    
+
     .ng-scope {
       margin: 0;
     }
-    
+
     #myModal {
       padding: 2% 3%;
       width: 100%;
@@ -315,7 +316,7 @@ h2 {
           width: 94%;
           font-size: 1.2em;
           padding: 1%;
-        }        
+        }
       }
     }
   }
