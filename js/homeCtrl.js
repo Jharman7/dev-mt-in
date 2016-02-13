@@ -5,6 +5,7 @@ app.controller('homeCtrl', function ($scope, profileService) {
     var profileId = JSON.parse(localStorage.getItem('profileId'));
 
     if (profileId) {
+      console.log(profileId);
       profileService.checkForProfile(profileId.profileId)
       .then(function(profile){
         $scope.myProfile = profile.data;
@@ -33,7 +34,6 @@ app.controller('homeCtrl', function ($scope, profileService) {
   // }
   $scope.saveProfile = function (profile) {
     profileService.saveProfile(profile);
-    console.log('calling profileService.saveProfile');
   }
 
   $scope.deleteProfile = function() {

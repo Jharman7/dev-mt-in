@@ -1,15 +1,16 @@
 angular.module('devMtIn')
 .service('profileService', function($http) {
 
-  var baseUrl = 'http://connections.devmounta.in';
+  var baseUrl = 'http://connections.devmounta.in/';
 
-  this.checkForProfile = function(profileId) {
+  this.checkForProfile = function () {
+    this.checkForProfile = function(profileId) {
       return $http({
         method: 'GET'
       , url: baseUrl + 'api/profiles/' + profileId
       });
+    }
   }
-
 
   this.saveProfile = function(profile) {
     return $http({
