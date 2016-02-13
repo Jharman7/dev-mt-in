@@ -1,9 +1,19 @@
 var app = angular.module('devMtIn');
-app.controller('homeCtrl', function ($scope) {
-  $scope.myProfile = {
-    name: 'John Doe'
-  , friends: [{name: 'Ryan'}, {name: 'Bryan'}, {name: 'Sarah'}, {name: 'Zac'}, {name: 'Erin'}]
+app.controller('homeCtrl', function ($scope, profileService) {
+
+  $scope.checkForProfile = function () {
+    var profileId = JSON.parse(localStorage.getItem('profileId'));
+
+    if (profileId) {
+      profileService.checkForProfile(profileId.profileId)
+      .then(function(profile){
+        $scope.myProfile = profile.data;
+      })
+      .catch(err)
+      console.error(err);
+    }
   }
+  $scope.checkForProfile();
 
   $scope.sortOptions = [{
     display: 'Ascending'
@@ -13,4 +23,21 @@ app.controller('homeCtrl', function ($scope) {
     display: 'Descending'
   , value: true
   }];
+
+  $scope.editing = false;
+
+  // $scope.saveProfile = function (profile) {
+  //   console.log('did the thing');
+  //   console.log(profile);
+  //   localStorage.setItem('profile',JSON.stringify(profile));
+  // }
+  $scope.saveProfile = function (profile) {
+    profileService.saveProfile(profile);
+    console.log('calling profileService.saveProfile');
+  }
+
+  $scope.deleteProfile = function() {
+    localStorage.removeItem('profile');
+    $scope.myProfile = profileService.checkForProfile();
+  }
 });
