@@ -10,8 +10,9 @@ app.controller('homeCtrl', function ($scope, profileService) {
       .then(function(profile){
         $scope.myProfile = profile.data;
       })
-      .catch(err)
-      console.error(err);
+      .catch(function(err) {
+        console.error(err);
+      })
     }
   }
   $scope.checkForProfile();
@@ -36,8 +37,19 @@ app.controller('homeCtrl', function ($scope, profileService) {
     profileService.saveProfile(profile);
   }
 
-  $scope.deleteProfile = function() {
-    localStorage.removeItem('profile');
-    $scope.myProfile = profileService.checkForProfile();
+  $scope.deleteProfile = function () {
+    profileService.deleteProfile()
+    .then(function(deletedProfile){
+      localStorage.removeItem('profileId');
+      $scope.myProfile={};
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
   }
+
+  // $scope.deleteProfile = function() {
+  //   localStorage.removeItem('profile');
+  //   $scope.myProfile = profileService.checkForProfile();
+  // }
 });

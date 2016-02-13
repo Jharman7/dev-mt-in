@@ -3,13 +3,11 @@ angular.module('devMtIn')
 
   var baseUrl = 'http://connections.devmounta.in/';
 
-  this.checkForProfile = function () {
-    this.checkForProfile = function(profileId) {
-      return $http({
+  this.checkForProfile = function(profileId) {
+    return $http({
         method: 'GET'
-      , url: baseUrl + 'api/profiles/' + profileId
-      });
-    }
+        , url: baseUrl + 'api/profiles/' + profileId
+    });
   }
 
   this.saveProfile = function(profile) {
@@ -25,6 +23,14 @@ angular.module('devMtIn')
     .catch(function(err){
       console.error(err);
     })
+  }
+
+  this.deleteProfile = function () {
+    var profileId = JSON.parse(localStorage.getItem('profileId')).profileId;
+    return $http({
+      method: 'DELETE',
+      url: baseUrl + 'api/profiles/' + profileId
+    });
   }
 
 });
